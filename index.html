@@ -1,483 +1,780 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yashrajsinh Chudasama</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --text-color: #333;
-            --light-color: #ecf0f1;
-            --accent-color: #e74c3c;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #f9f9f9;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .hero {
-            display: flex;
-            align-items: center;
-            padding: 100px 0;
-            background-color: var(--light-color);
-        }
-        
-        .hero-content {
-            flex: 1;
-            padding-right: 40px;
-        }
-        
-        .hero-image {
-            flex: 1;
-            text-align: left;
-        }
-        
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--secondary-color);
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-        
-        p {
-            margin-bottom: 15px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-        }
-        
-        .btn:hover {
-            background-color: #2980b9;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        section:nth-child(even) {
-            background-color: var(--light-color);
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: flex-start;
-            gap: 40px;
-        }
-        
-        .about-text {
-            flex: 2;
-        }
-        
-        .skills {
-            flex: 1;
-        }
-        
-        .skill-bar {
-            margin-bottom: 20px;
-        }
-        
-        .skill-name {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .skill-level {
-            height: 10px;
-            background-color: #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .skill-percent {
-            height: 100%;
-            background-color: var(--secondary-color);
-            border-radius: 5px;
-        }
-        
-        .publication {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-            transition: transform 0.3s;
-        }
-        
-        .publication:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .publication-meta {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        
-        .authors {
-            font-style: italic;
-        }
-        
-        .highlight {
-            color: var(--accent-color);
-        }
-        
-        .awards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .award {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        
-        .award:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .award-date {
-            color: var(--secondary-color);
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-        }
-        
-        .contact-icon {
-            margin-right: 15px;
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        
-        .social-links {
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--secondary-color);
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-                padding: 60px 0;
-            }
-            
-            .hero-content {
-                padding-right: 0;
-                padding-top: 40px;
-            }
-            
-            .hero-image img {
-                max-width: 200px;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            nav {
-                flex-direction: column;
-            }
-            
-            .nav-links {
-                margin-top: 20px;
-                justify-content: center;
-            }
-            
-            .nav-links li {
-                margin: 0 15px;
-            }
-        }
-    </style>
-    <!-- Font Awesome for icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Academic website of Yashrajsinh Chudasama — research on explainable AI, knowledge graphs, causal models, and neuro-symbolic AI." />
+  <title>Yashrajsinh Chudasama | Knowledge Graphs & Neuro-Symbolic AI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --parchment: #f3ead7;
+      --parchment-light: #fbf7ee;
+      --stone: #d4c7ad;
+      --stone-dark: #8f816a;
+      --charcoal: #2d2a26;
+      --terracotta: #a84f35;
+      --terracotta-dark: #713321;
+      --teal: #2f6f73;
+      --teal-light: #7da2a0;
+      --gold: #b48a3c;
+      --gold-light: #d8bd7a;
+      --ink-muted: #655e54;
+      --shadow: 0 18px 45px rgba(67, 52, 30, .15);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      color: var(--charcoal);
+      font-family: "Inter", sans-serif;
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(180,138,60,.10), transparent 30%),
+        radial-gradient(circle at 90% 40%, rgba(47,111,115,.08), transparent 30%),
+        linear-gradient(rgba(255,255,255,.28), rgba(255,255,255,.28)),
+        repeating-linear-gradient(0deg, rgba(90,76,52,.022) 0 1px, transparent 1px 5px),
+        var(--parchment);
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    .skip-link {
+      position: absolute; left: -999px; top: 10px;
+      background: var(--charcoal); color: white; padding: 10px 14px; z-index: 9999;
+    }
+    .skip-link:focus { left: 10px; }
+
+    /* Knowledge-graph background */
+    .kg-bg {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .18;
+      background-image:
+        radial-gradient(circle, var(--teal) 0 2px, transparent 3px),
+        radial-gradient(circle, var(--terracotta) 0 1.5px, transparent 2.5px);
+      background-size: 180px 180px, 240px 240px;
+      background-position: 25px 35px, 110px 90px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(45,42,38,.95);
+      border-bottom: 3px solid var(--gold);
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--parchment-light);
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 22px; list-style: none; }
+    .nav-links a {
+      color: #f8f0df; text-decoration: none; font-size: .92rem; font-weight: 600;
+      border-bottom: 1px solid transparent; padding: 8px 0;
+    }
+    .nav-links a:hover, .nav-links a:focus { color: var(--gold-light); border-color: var(--gold-light); }
+
+    .menu-button {
+      display: none; border: 1px solid var(--gold-light); color: white; background: transparent;
+      padding: 8px 12px; border-radius: 8px; font: inherit;
+    }
+
+    .hero { padding: 80px 0 60px; position: relative; overflow: hidden; }
+
+    .mosaic-frame {
+      position: relative;
+      padding: 12px;
+      border: 1px solid var(--gold);
+      background:
+        linear-gradient(45deg, var(--terracotta) 25%, transparent 25%) 0 0/18px 18px,
+        linear-gradient(-45deg, var(--teal) 25%, transparent 25%) 0 0/18px 18px,
+        linear-gradient(45deg, transparent 75%, var(--gold) 75%) 0 0/18px 18px,
+        linear-gradient(-45deg, transparent 75%, var(--stone-dark) 75%) 0 0/18px 18px,
+        #cdbd9e;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-plaque {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 56px;
+      align-items: center;
+      min-height: 590px;
+      padding: 64px;
+      background:
+        linear-gradient(rgba(255,255,255,.72), rgba(255,255,255,.72)),
+        repeating-linear-gradient(90deg, rgba(90,76,52,.035) 0 1px, transparent 1px 9px),
+        var(--parchment-light);
+      border: 1px solid rgba(113,51,33,.3);
+      overflow: hidden;
+    }
+
+    .hero-plaque::before,
+    .hero-plaque::after {
+      content: ""; position: absolute; width: 250px; height: 250px; border-radius: 50%;
+      border: 1px solid rgba(47,111,115,.25);
+    }
+    .hero-plaque::before { left: -130px; top: -120px; }
+    .hero-plaque::after { right: -100px; bottom: -130px; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      color: var(--terracotta-dark); font-family: "JetBrains Mono", monospace;
+      font-size: .78rem; text-transform: uppercase; letter-spacing: .13em;
+      margin-bottom: 14px;
+    }
+    .eyebrow::before { content: "◆"; color: var(--gold); }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", serif;
+      line-height: 1.08;
+      color: var(--charcoal);
+    }
+
+    h1 { font-size: clamp(3.4rem, 7vw, 6rem); margin-bottom: 16px; }
+    .hero-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.35rem, 2.4vw, 2rem);
+      color: var(--terracotta);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero-tagline {
+      max-width: 760px; font-size: 1.12rem; color: var(--ink-muted); margin-bottom: 28px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      padding: 12px 18px; border-radius: 999px; text-decoration: none; font-weight: 700;
+      border: 1px solid var(--terracotta); transition: .2s ease;
+    }
+    .btn-primary { color: white; background: var(--terracotta); }
+    .btn-secondary { color: var(--terracotta-dark); background: transparent; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 7px 20px rgba(87,58,33,.15); }
+
+    .portrait-shell { position: relative; justify-self: center; width: min(330px, 100%); }
+    .portrait-shell::before {
+      content: ""; position: absolute; inset: -18px; border: 1px solid var(--gold);
+      transform: rotate(3deg); z-index: 0;
+    }
+    .portrait {
+      position: relative; z-index: 1; aspect-ratio: 4/5; object-fit: cover;
+      border: 9px solid var(--parchment-light);
+      box-shadow: 0 18px 35px rgba(45,42,38,.25);
+      filter: saturate(.92) contrast(1.02);
+    }
+
+    .node { position: absolute; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 7px rgba(47,111,115,.12); }
+    .n1 { width: 10px; height: 10px; right: 35%; top: 11%; }
+    .n2 { width: 7px; height: 7px; right: 11%; top: 28%; background: var(--terracotta); }
+    .n3 { width: 8px; height: 8px; left: 48%; bottom: 12%; background: var(--gold); }
+
+    section { padding: 86px 0; }
+    .section-heading { max-width: 760px; margin-bottom: 40px; }
+    .section-heading h2 { font-size: clamp(2.6rem, 5vw, 4.2rem); margin-bottom: 10px; }
+    .section-heading p { color: var(--ink-muted); }
+
+    .graph-divider {
+      display: flex; align-items: center; gap: 8px; margin: 16px 0 24px;
+    }
+    .graph-divider span { width: 9px; height: 9px; border-radius: 50%; background: var(--teal); }
+    .graph-divider span:nth-child(2) { width: 90px; height: 1px; border-radius: 0; background: linear-gradient(90deg,var(--teal),var(--gold)); }
+    .graph-divider span:nth-child(3) { background: var(--terracotta); }
+
+    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 30px; }
+    .stone-card {
+      background: rgba(251,247,238,.88);
+      border: 1px solid rgba(143,129,106,.45);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: 0 10px 28px rgba(64,48,25,.09);
+    }
+
+    .about-copy p + p { margin-top: 16px; }
+
+    .research-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .tag {
+      padding: 7px 11px; border: 1px solid rgba(47,111,115,.45); border-radius: 999px;
+      background: rgba(47,111,115,.06); color: #23585b; font-size: .86rem; font-weight: 700;
+    }
+
+    .inscription-list { list-style: none; display: grid; gap: 17px; }
+    .inscription-list li { position: relative; padding-left: 26px; color: var(--ink-muted); }
+    .inscription-list li::before {
+      content: ""; position: absolute; left: 1px; top: .7em; width: 9px; height: 9px;
+      border-radius: 50%; background: var(--terracotta); box-shadow: 0 0 0 5px rgba(168,79,53,.1);
+    }
+    .inscription-list strong { color: var(--charcoal); display: block; }
+
+    .timeline { display: grid; gap: 18px; }
+    .timeline-item {
+      display: grid; grid-template-columns: 110px 1fr; gap: 22px; align-items: start;
+      padding: 22px 0; border-bottom: 1px solid rgba(143,129,106,.35);
+    }
+    .timeline-item:last-child { border-bottom: 0; }
+    .timeline-year {
+      font-family: "JetBrains Mono", monospace; color: var(--terracotta); font-size: .8rem;
+      border: 1px solid rgba(168,79,53,.35); border-radius: 999px; text-align: center; padding: 7px 9px;
+    }
+    .timeline-item h3 { font-size: 1.45rem; margin-bottom: 4px; }
+    .timeline-item p { color: var(--ink-muted); }
+
+    .publication-controls {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px;
+      margin-bottom: 24px;
+    }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter-btn {
+      border: 1px solid var(--stone-dark); background: rgba(251,247,238,.75);
+      color: var(--charcoal); border-radius: 999px; padding: 8px 13px; cursor: pointer; font-weight: 700;
+    }
+    .filter-btn.active, .filter-btn:hover { background: var(--charcoal); color: white; }
+
+    .search-box {
+      width: min(330px,100%); padding: 10px 14px; border-radius: 999px;
+      border: 1px solid var(--stone-dark); background: var(--parchment-light); font: inherit;
+    }
+
+    .publication-list { display: grid; gap: 20px; }
+
+    .publication {
+      position: relative; overflow: hidden;
+      background:
+        linear-gradient(rgba(251,247,238,.93), rgba(251,247,238,.93)),
+        repeating-linear-gradient(0deg, rgba(80,66,44,.035) 0 1px, transparent 1px 4px);
+      border: 1px solid rgba(143,129,106,.5);
+      border-left: 6px solid var(--terracotta);
+      border-radius: 8px;
+      padding: 27px 28px 24px;
+      box-shadow: 0 8px 24px rgba(64,48,25,.08);
+      transition: .2s ease;
+    }
+    .publication:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .publication::after {
+      content: ""; position: absolute; right: 18px; top: 18px; width: 8px; height: 8px;
+      border-radius: 50%; background: var(--teal); box-shadow: 18px 13px 0 var(--gold), 35px -2px 0 var(--terracotta);
+      opacity: .65;
+    }
+    .publication h3 { font-size: clamp(1.45rem, 2.6vw, 1.85rem); margin-right: 80px; }
+    .publication-meta {
+      margin: 8px 0 10px; color: var(--terracotta-dark); font-family: "JetBrains Mono", monospace;
+      font-size: .78rem; text-transform: uppercase; letter-spacing: .04em;
+    }
+    .authors { color: var(--ink-muted); font-size: .9rem; margin-bottom: 12px; }
+    .authors strong { color: var(--charcoal); }
+    .publication-description { color: #4f4941; }
+    .paper-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+    .paper-link {
+      text-decoration: none; font-size: .82rem; font-weight: 800; color: var(--teal);
+      border-bottom: 1px solid currentColor;
+    }
+
+    .contact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .contact-card h3 { font-size: 1.5rem; margin-bottom: 8px; }
+    .contact-card a { color: var(--teal); overflow-wrap: anywhere; }
+    .socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .socials a {
+      text-decoration: none; font-weight: 700; padding: 8px 11px; border: 1px solid rgba(47,111,115,.4);
+      border-radius: 999px; color: var(--teal);
+    }
+
+    footer {
+      background: var(--charcoal); color: #efe4cf; padding: 26px 0; text-align: center;
+      border-top: 4px solid var(--gold);
+    }
+    footer p { font-size: .9rem; }
+
+    @media (max-width: 900px) {
+      .hero-plaque { grid-template-columns: 1fr; padding: 42px; }
+      .portrait-shell { width: 280px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .nav-links {
+        display: none; position: absolute; top: 72px; left: 0; right: 0;
+        background: var(--charcoal); padding: 18px 20px; flex-direction: column; align-items: flex-start;
+        border-top: 1px solid rgba(255,255,255,.12);
+      }
+      .nav-links.open { display: flex; }
+      .menu-button { display: inline-block; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(100% - 24px, 1180px); }
+      .hero { padding-top: 34px; }
+      .mosaic-frame { padding: 7px; }
+      .hero-plaque { padding: 30px 22px; gap: 36px; }
+      h1 { font-size: 3.2rem; }
+      section { padding: 64px 0; }
+      .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+      .timeline-year { width: max-content; }
+      .publication { padding: 23px 20px; }
+      .publication h3 { margin-right: 0; }
+      .publication::after { display: none; }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Yashrajsinh Chudasama</div>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#awards">Awards</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>M.Sc. Yashrajsinh Chudasama</h1>
-                <p>Research Associate</p>
-                <p> research focus</p>
-                <a href="#contact" class="btn">Get in Touch</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="kg-bg" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="container">
+      <nav aria-label="Primary navigation">
+        <a class="brand" href="#home">Yashrajsinh Chudasama</a>
+        <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="mosaic-frame">
+          <div class="hero-plaque">
+            <div>
+              <div class="eyebrow">Knowledge Graphs · Causality · Neuro-Symbolic AI</div>
+              <h1>Yashrajsinh Chudasama</h1>
+              <div class="hero-title">Ph.D. Researcher &amp; Research Associate</div>
+              <p class="hero-tagline">
+                Unveiling interpretable insights by combining cognitive knowledge graphs,
+                causal modelling, symbolic reasoning, and machine learning.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#publications">Explore Publications</a>
+                <a class="btn btn-secondary" href="YashRaj_s_CV.pdf" target="_blank" rel="noopener">View CV</a>
+                <a class="btn btn-secondary" href="https://scholar.google.de/citations?user=gfbkqMUAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+              </div>
             </div>
-            <div class="hero-image">
-                <img src="images/yash_pic.png" alt="Your Photo">
+
+            <div class="portrait-shell">
+              <img class="portrait" src="images/yashpic.png" alt="Portrait of Yashrajsinh Chudasama">
             </div>
+
+            <span class="node n1" aria-hidden="true"></span>
+            <span class="node n2" aria-hidden="true"></span>
+            <span class="node n3" aria-hidden="true"></span>
+          </div>
         </div>
+      </div>
     </section>
-    
+
     <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Welcome .</p>
-                </div>
-                <div class="skills">
-                    <h3>Research Skills</h3>
-                    
-                    <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>Skill 1</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-level">
-                            <div class="skill-percent" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>Skill 2</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-level">
-                            <div class="skill-percent" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>Skill 3</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-level">
-                            <div class="skill-percent" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-bar">
-                        <div class="skill-name">
-                            <span>Skill 4</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-level">
-                            <div class="skill-percent" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Profile</div>
+          <h2>About Me</h2>
+          <div class="graph-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+          <p>
+            I investigate how semantic knowledge and symbolic reasoning can make AI systems
+            more explainable, reliable, and scientifically useful.
+          </p>
         </div>
+
+        <div class="about-grid">
+          <article class="stone-card about-copy">
+            <p>
+              I am a Research Associate at the TIB – Leibniz Information Centre for Science
+              and Technology in Hannover, Germany, and a Ph.D. researcher working at the
+              intersection of knowledge graphs, explainable AI, causal reasoning, and
+              neuro-symbolic artificial intelligence.
+            </p>
+            <p>
+              My doctoral thesis, <strong>“Explainable Causal Models on top of Cognitive
+              Knowledge Graphs,”</strong> studies how structured knowledge, symbolic
+              constraints, and causal representations can complement data-driven models.
+              The goal is to improve transparency, traceability, and trust in complex
+              decision-making systems.
+            </p>
+            <p>
+              My work spans knowledge graph completion, link-prediction explanations,
+              interpretable machine learning, semantic descriptions of AI pipelines,
+              symbolic chain-of-thought generation, and hybrid AI applications in medicine.
+            </p>
+
+            <div class="research-tags" aria-label="Research interests">
+              <span class="tag">Knowledge Graphs</span>
+              <span class="tag">Explainable AI</span>
+              <span class="tag">Causal AI</span>
+              <span class="tag">Neuro-Symbolic AI</span>
+              <span class="tag">Knowledge Graph Completion</span>
+              <span class="tag">Symbolic Reasoning</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Semantic Web</span>
+            </div>
+          </article>
+
+          <aside class="stone-card">
+            <h3>Research Profile</h3>
+            <div class="graph-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+            <ul class="inscription-list">
+              <li><strong>Current role</strong>Research Associate, TIB Hannover</li>
+              <li><strong>Doctoral focus</strong>Explainable causal models over cognitive knowledge graphs</li>
+              <li><strong>Core methods</strong>Knowledge graphs, symbolic rules, constraints, embeddings, and language models</li>
+              <li><strong>Application domains</strong>Scientific data management, medicine, and trustworthy AI</li>
+              <li><strong>Location</strong>Hannover, Germany</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
     </section>
-    
+
+    <section id="research">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Research Agenda</div>
+          <h2>From Data to Explainable Knowledge</h2>
+          <div class="graph-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="about-grid">
+          <article class="stone-card">
+            <h3>Research Challenge</h3>
+            <p>
+              Modern machine-learning models often produce strong predictions without
+              revealing the semantic evidence, causal structure, or reasoning path behind
+              their decisions.
+            </p>
+          </article>
+          <article class="stone-card">
+            <h3>Research Direction</h3>
+            <p>
+              I combine cognitive knowledge graphs with symbolic and causal models to
+              represent background knowledge, validate predictions, and generate
+              human-understandable explanations.
+            </p>
+          </article>
+          <article class="stone-card">
+            <h3>Expected Impact</h3>
+            <p>
+              The resulting hybrid systems aim to be more transparent, logically coherent,
+              reusable, and suitable for high-stakes domains where trust and traceability
+              matter.
+            </p>
+          </article>
+          <article class="stone-card">
+            <h3>Current Topics</h3>
+            <p>
+              Rule-guided multi-hop reasoning, explainable link prediction, symbolic
+              chain-of-thoughts, semantic AI-pipeline documentation, and neuro-symbolic
+              knowledge graph completion.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Academic Journey</div>
+          <h2>Experience &amp; Education</h2>
+          <div class="graph-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="stone-card timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2021–Present</div>
+            <div>
+              <h3>Research Associate</h3>
+              <p>TIB – Leibniz Information Centre for Science and Technology, Hannover, Germany.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">Ph.D.</div>
+            <div>
+              <h3>Explainable Causal Models on top of Cognitive Knowledge Graphs</h3>
+              <p>Doctoral research on explainability, causal reasoning, knowledge graphs, and hybrid AI systems.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2017–2021</div>
+            <div>
+              <h3>M.Sc. International Mechatronics</h3>
+              <p>Leibniz Universität Hannover, Germany · Grade 1.9.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2017–2019</div>
+            <div>
+              <h3>M.Sc. Intelligent Systems</h3>
+              <p>Peter the Great St. Petersburg Polytechnic University, Russia · Grade 1.3.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2013–2017</div>
+            <div>
+              <h3>B.E. Mechatronics Engineering</h3>
+              <p>Gujarat Technological University, India · Grade 1.8.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="publications">
-        <div class="container">
-            <h2>Research Publications</h2>
-            
-            <div class="publication">
-                <h3>Title of Your Publication</h3>
-                <div class="publication-meta">
-                    <span class="journal">Journal Name</span> | 
-                    <span class="year">2023</span> | 
-                    <span class="doi">DOI: 10.xxxx/xxxxx</span>
-                </div>
-                <p class="authors"><span class="highlight">Yashrajsinh Chudasama</span></p>
-                <p>Add description.</p>
-                <a href="#" class="btn">Read Paper</a>
-            </div>
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Selected &amp; Recent Work</div>
+          <h2>Publications</h2>
+          <div class="graph-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+          <p>
+            Publications are grouped by year. The descriptions provide a concise overview
+            of the contribution and research focus of each work.
+          </p>
         </div>
-    </section>
-    
-    <section id="awards">
-        <div class="container">
-            <h2>Awards & Recognition</h2>
-            
-            <div class="awards">
-                <div class="award">
-                    <div class="award-date">2023</div>
-                    <h3>Best Demo/Poster Paper</h3>
-                    <p>SEMANTiCS 2023 conference. Add descprition ...</p>
-                </div>
-            </div>
+
+        <div class="publication-controls">
+          <div class="filters" aria-label="Filter publications by year">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="2026">2026</button>
+            <button class="filter-btn" data-filter="2025">2025</button>
+            <button class="filter-btn" data-filter="2024">2024</button>
+            <button class="filter-btn" data-filter="2023">2023</button>
+          </div>
+          <input class="search-box" id="publicationSearch" type="search" placeholder="Search publications…" aria-label="Search publications">
         </div>
+
+        <div class="publication-list" id="publicationList">
+
+          <article class="publication" data-year="2026" data-search="tool4boxology semantic toolbox constructing analysing neuro-symbolic architectures knowledge graphs design patterns">
+            <h3>Tool4Boxology: A Semantic Toolbox for Constructing and Analysing Neuro-Symbolic Architectures</h3>
+            <div class="publication-meta">ESWC · 2026 · pp. 191–211</div>
+            <p class="authors">Johannes E. Bendler, <strong>Yashrajsinh Chudasama</strong>, Mahsa Forghani, Enrique Iglesias, Disha Purohit, Jacquiline Roney, Annette ten Teije, Frank van Harmelen, Maria-Esther Vidal</p>
+            <p class="publication-description">Introduces a semantic toolbox for modelling, validating, querying, and comparing neuro-symbolic system architectures through visual patterns, ontologies, knowledge graphs, and integrity constraints.</p>
+            <div class="paper-links">
+              <a class="paper-link" href="https://doi.org/10.1007/978-3-032-25159-6_11" target="_blank" rel="noopener">DOI</a>
+              <a class="paper-link" href="https://github.com/SDM-TIB/Tool4Boxology" target="_blank" rel="noopener">Software</a>
+            </div>
+          </article>
+
+          <article class="publication" data-year="2026" data-search="generating symbolic chain-of-thoughts knowledge graphs language models dataset metadata extraction scientific publications">
+            <h3>Generating Symbolic Chain-of-Thoughts from Knowledge Graphs to Fine-Tune Language Models for Dataset Metadata Extraction in Scientific Publications</h3>
+            <div class="publication-meta">SSRN Preprint · 2026</div>
+            <p class="authors"><strong>Yashrajsinh Chudasama</strong>, Disha Purohit, Enrique Iglesias, Ahmad Sakor, Maria-Esther Vidal</p>
+            <p class="publication-description">Explores how symbolic reasoning paths generated from knowledge graphs can supervise language-model fine-tuning for extracting structured dataset metadata from scientific literature.</p>
+            <div class="paper-links"><a class="paper-link" href="https://doi.org/10.2139/ssrn.7032069" target="_blank" rel="noopener">DOI</a></div>
+          </article>
+
+          <article class="publication" data-year="2026" data-search="prism path-guided reasoning interpretation semantic models explainable link prediction knowledge graphs">
+            <h3>PRISM: Path-guided Reasoning and Interpretation for Semantic Models</h3>
+            <div class="publication-meta">SSRN Preprint · 2026</div>
+            <p class="authors"><strong>Yashrajsinh Chudasama</strong>, Disha Purohit, Maria-Esther Vidal</p>
+            <p class="publication-description">Presents a path-guided framework for deriving interpretable evidence from semantic structures, connecting model predictions with meaningful multi-hop reasoning paths.</p>
+            <div class="paper-links"><a class="paper-link" href="https://doi.org/10.2139/ssrn.7119522" target="_blank" rel="noopener">DOI</a></div>
+          </article>
+
+          <article class="publication" data-year="2025" data-search="interpretme interpretations machine learning models knowledge graphs semantic web shacl explainability">
+            <h3>InterpretME: A Tool for Interpretations of Machine Learning Models over Knowledge Graphs</h3>
+            <div class="publication-meta">Semantic Web · 2025 · 16(2)</div>
+            <p class="authors"><strong>Yashrajsinh Chudasama</strong>, Disha Purohit, Philipp D. Rohde, Julian Gercke, Maria-Esther Vidal</p>
+            <p class="publication-description">Provides fine-grained semantic descriptions of machine-learning models, features, validation constraints, and model interpretations so that predictions can be traced and inspected through knowledge graphs.</p>
+            <div class="paper-links"><a class="paper-link" href="https://doi.org/10.3233/SW-233511" target="_blank" rel="noopener">DOI</a></div>
+          </article>
+
+          <article class="publication" data-year="2025" data-search="integrating knowledge graphs symbolic ai interpretable hybrid ai systems medicine journal web semantics">
+            <h3>Integrating Knowledge Graphs with Symbolic AI: The Path to Interpretable Hybrid AI Systems in Medicine</h3>
+            <div class="publication-meta">Journal of Web Semantics · 2025 · 84:100856</div>
+            <p class="authors">Maria-Esther Vidal, <strong>Yashrajsinh Chudasama</strong>, Hao Huang, Disha Purohit, Maria Torrente</p>
+            <p class="publication-description">Examines how knowledge graphs and symbolic AI can be integrated with machine learning to support more transparent and knowledge-aware medical AI systems.</p>
+            <div class="paper-links"><a class="paper-link" href="https://doi.org/10.1016/j.websem.2024.100856" target="_blank" rel="noopener">DOI</a></div>
+          </article>
+
+          <article class="publication" data-year="2025" data-search="toward interpretable hybrid ai integrating knowledge graphs symbolic reasoning medicine ieee access">
+            <h3>Toward Interpretable Hybrid AI: Integrating Knowledge Graphs and Symbolic Reasoning in Medicine</h3>
+            <div class="publication-meta">IEEE Access · 2025 · 13:39489–39509</div>
+            <p class="authors"><strong>Yashrajsinh Chudasama</strong>, Hao Huang, Disha Purohit, Maria-Esther Vidal</p>
+            <p class="publication-description">Surveys and analyses hybrid medical AI approaches that combine structured knowledge and symbolic reasoning with data-driven learning to improve explainability and decision support.</p>
+          </article>
+
+          <article class="publication" data-year="2025" data-search="enhancing medical knowledge discovery neuro-symbolic inductive learning medical knowledge graphs wsdm">
+            <h3>Enhancing Medical Knowledge Discovery: A Neuro-Symbolic System for Inductive Learning over Medical KGs</h3>
+            <div class="publication-meta">WSDM · 2025 · pp. 1108–1109</div>
+            <p class="authors">Disha Purohit, <strong>Yashrajsinh Chudasama</strong>, Maria-Esther Vidal</p>
+            <p class="publication-description">Demonstrates a neuro-symbolic approach that combines learned representations with symbolic knowledge to improve inductive discovery over medical knowledge graphs.</p>
+          </article>
+
+          <article class="publication" data-year="2025" data-search="vanilla validated knowledge graph completion normalization integrity link prediction logical accuracy">
+            <h3>VANILLA: Validated Knowledge Graph Completion—A Normalization-Based Framework for Integrity, Link Prediction, and Logical Accuracy</h3>
+            <div class="publication-meta">Knowledge-Based Systems · 2025 · 325:113939</div>
+            <p class="authors">Disha Purohit, <strong>Yashrajsinh Chudasama</strong>, Maria-Esther Vidal</p>
+            <p class="publication-description">Introduces a knowledge-graph completion framework that integrates normalization and validation mechanisms to balance predictive performance with graph integrity and logical consistency.</p>
+          </article>
+
+          <article class="publication" data-year="2025" data-search="sime knowledge graph embedding self-similar structures algebraic geometric transformations">
+            <h3>SimE: A Knowledge Graph Embedding Model to Encode Self-Similar Structures Through Algebraic and Geometric Transformations</h3>
+            <div class="publication-meta">IEEE Access · 2025</div>
+            <p class="authors">Kossi Amouzouvi, <strong>Yashrajsinh Chudasama</strong>, Disha Purohit, Ariam Rivas, Bowen Song, Jens Lehmann, Sahar Vahdati, Maria-Esther Vidal</p>
+            <p class="publication-description">Proposes a knowledge-graph embedding model designed to capture self-similar relational structures using algebraic and geometric transformations.</p>
+          </article>
+
+          <article class="publication" data-year="2025" data-search="capturing symbolic knowledge constraints incompleteness inductive learning neuro-symbolic knowledge graph completion k-cap">
+            <h3>Capturing Symbolic Knowledge of Constraints and Incompleteness to Guide Inductive Learning in Neuro-Symbolic Knowledge Graph Completion</h3>
+            <div class="publication-meta">K-CAP · 2025 · pp. 111–118</div>
+            <p class="authors">Disha Purohit, <strong>Yashrajsinh Chudasama</strong>, Maria-Esther Vidal</p>
+            <p class="publication-description">Studies how logical constraints and explicit representations of incompleteness can guide inductive learning and improve consistency in neuro-symbolic knowledge-graph completion.</p>
+          </article>
+
+          <article class="publication" data-year="2025" data-search="semantic web creative ai technical report isws 2023 arxiv">
+            <h3>Semantic Web and Creative AI — A Technical Report from ISWS 2023</h3>
+            <div class="publication-meta">arXiv · 2025 · 2501.18542</div>
+            <p class="authors">Raia Abu Ahmad, Reham Alharbi, Roberto Barile, Martin Böckling, Francisco Bolanos, Sara Bonfitto, Oleksandra Bruns, Irene Celino, <strong>Yashrajsinh Chudasama</strong>, et al.</p>
+            <p class="publication-description">Reports collaborative investigations from ISWS 2023 on the intersection of semantic-web technologies and creative AI, including structured knowledge, generative systems, and responsible innovation.</p>
+          </article>
+
+          <article class="publication" data-year="2024" data-search="semantically describing predictive models interpretable insights lung cancer relapse semantics 2024">
+            <h3>Semantically Describing Predictive Models for Interpretable Insights into Lung Cancer Relapse</h3>
+            <div class="publication-meta">SEMANTiCS · 2024 · pp. 142–158</div>
+            <p class="authors"><strong>Yashrajsinh Chudasama</strong>, Disha Purohit, Philipp D. Rohde, Enrique Iglesias, Maria Torrente, Maria-Esther Vidal</p>
+            <p class="publication-description">Applies semantic model descriptions and knowledge-graph-based interpretation to predictive models for lung-cancer relapse, supporting traceable clinical insights.</p>
+          </article>
+
+          <article class="publication" data-year="2024" data-search="hybrid ai trace document bias machine learning pipelines ieee access">
+            <h3>Employing Hybrid AI Systems to Trace and Document Bias in ML Pipelines</h3>
+            <div class="publication-meta">IEEE Access · 2024 · 12:96821–96847</div>
+            <p class="authors">Mayra Russo, <strong>Yashrajsinh Chudasama</strong>, Disha Purohit, Sammy Sawischa, Maria-Esther Vidal</p>
+            <p class="publication-description">Uses semantic and symbolic representations to document where bias can enter machine-learning pipelines and to improve traceability across data, models, and decisions.</p>
+          </article>
+
+          <article class="publication" data-year="2024" data-search="vise validated invalidated symbolic explanations knowledge graph integrity explimed ecai">
+            <h3>VISE: Validated and Invalidated Symbolic Explanations for Knowledge Graph Integrity</h3>
+            <div class="publication-meta">EXPLIMED @ ECAI · 2024</div>
+            <p class="authors">Disha Purohit, <strong>Yashrajsinh Chudasama</strong>, Maria Torrente, Maria-Esther Vidal</p>
+            <p class="publication-description">Investigates both validated and invalidated symbolic explanations to reveal whether knowledge-graph predictions comply with graph integrity conditions.</p>
+          </article>
+
+          <article class="publication" data-year="2023" data-search="exploiting semantics explaining link prediction knowledge graphs eswc">
+            <h3>Exploiting Semantics for Explaining Link Prediction over Knowledge Graphs</h3>
+            <div class="publication-meta">ESWC · 2023 · pp. 321–330</div>
+            <p class="authors"><strong>Yashrajsinh Chudasama</strong></p>
+            <p class="publication-description">Explores how semantic relationships and graph structure can generate meaningful explanations for link-prediction results over knowledge graphs.</p>
+          </article>
+
+          <article class="publication" data-year="2023" data-search="enhancing interpretability machine learning models knowledge graphs semantics poster demo">
+            <h3>Enhancing Interpretability of Machine Learning Models over Knowledge Graphs</h3>
+            <div class="publication-meta">SEMANTiCS Posters &amp; Demos · 2023</div>
+            <p class="authors"><strong>Yashrajsinh Chudasama</strong>, Disha Purohit, Philipp D. Rohde, Maria-Esther Vidal</p>
+            <p class="publication-description">Presents a semantic approach for representing model characteristics and interpretations, enabling more transparent analysis of machine-learning predictions.</p>
+          </article>
+
+          <article class="publication" data-year="2023" data-search="sparkle symbolic knowledge knowledge graph enrichment learning k-cap">
+            <h3>SPaRKLE: Symbolic caPtuRing of Knowledge for Knowledge Graph Enrichment with LEarning</h3>
+            <div class="publication-meta">K-CAP · 2023 · pp. 44–52</div>
+            <p class="authors">Disha Purohit, <strong>Yashrajsinh Chudasama</strong>, Ariam Rivas, Maria-Esther Vidal</p>
+            <p class="publication-description">Combines symbolic knowledge with learning-based methods to enrich incomplete knowledge graphs while preserving interpretable relational evidence.</p>
+          </article>
+
+        </div>
+      </div>
     </section>
-    
+
     <section id="contact">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <h3>Email</h3>
-                        <p>yashrajsinh.chudasama@tib.eu</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div>
-                        <h3>Office</h3>
-                        <p>Lange Laube, 28<br>Scientific Data Management, TIB<br>Hannover, Germany, 30159</p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div>
-                        <h3>Phone</h3>
-                        <p>(+49)17655095845</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="social-links">
-                <a href="https://x.com/YChudasama26"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/yashrajsinh-chudasama/"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://scholar.google.de/citations?user=gfbkqMUAAAAJ&hl=en"><i class="fab fa-google-scholar"></i></a>
-                <a href="https://www.researchgate.net/profile/Yashraj-Chudasama?ev=hdr_xprf"><i class="fab fa-researchgate"></i></a>
-                <a href="https://orcid.org/0000-0003-3422-366X"><i class="fab fa-orcid"></i></a>
-            </div>
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Connect</div>
+          <h2>Get in Touch</h2>
+          <div class="graph-divider" aria-hidden="true"><span></span><span></span><span></span></div>
         </div>
+
+        <div class="contact-grid">
+          <article class="stone-card contact-card">
+            <h3>Email</h3>
+            <a href="mailto:yashrajsinh.chudasama@tib.eu">yashrajsinh.chudasama@tib.eu</a>
+          </article>
+          <article class="stone-card contact-card">
+            <h3>Affiliation</h3>
+            <p>TIB – Leibniz Information Centre for Science and Technology<br>Hannover, Germany</p>
+          </article>
+          <article class="stone-card contact-card">
+            <h3>Research Profiles</h3>
+            <div class="socials">
+              <a href="https://scholar.google.de/citations?user=gfbkqMUAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+              <a href="https://orcid.org/0000-0003-3422-366X" target="_blank" rel="noopener">ORCID</a>
+              <a href="https://www.linkedin.com/in/yashrajsinh-chudasama/" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://www.researchgate.net/profile/Yashraj-Chudasama?ev=hdr_xprf" target="_blank" rel="noopener">ResearchGate</a>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Your Name. All rights reserved.</p>
-        </div>
-    </footer>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Yashrajsinh Chudasama · Knowledge Graphs, Explainable AI &amp; Neuro-Symbolic Reasoning</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", open);
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const searchInput = document.getElementById("publicationSearch");
+    const publications = [...document.querySelectorAll(".publication")];
+    let activeYear = "all";
+
+    function filterPublications() {
+      const query = searchInput.value.toLowerCase().trim();
+
+      publications.forEach(pub => {
+        const yearMatch = activeYear === "all" || pub.dataset.year === activeYear;
+        const searchableText = (pub.dataset.search + " " + pub.innerText).toLowerCase();
+        const searchMatch = !query || searchableText.includes(query);
+        pub.hidden = !(yearMatch && searchMatch);
+      });
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+        activeYear = button.dataset.filter;
+        filterPublications();
+      });
+    });
+
+    searchInput.addEventListener("input", filterPublications);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
